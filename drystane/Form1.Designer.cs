@@ -42,9 +42,10 @@
             label3 = new Label();
             label4 = new Label();
             calculateBtn = new Button();
-            lenghtBox = new TextBox();
-            textBox2 = new TextBox();
+            LenghtBox = new TextBox();
+            widthBox = new TextBox();
             outputPanel = new Label();
+            infoPanel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -111,6 +112,7 @@
             btnReset.Text = "Reset";
             btnReset.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += BtnReset_Click;
             // 
             // btnBrief
             // 
@@ -182,22 +184,25 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(0, 156, 149);
-            label3.Location = new Point(553, 64);
+            label3.Location = new Point(267, 9);
             label3.Name = "label3";
-            label3.Size = new Size(41, 15);
+            label3.Size = new Size(273, 47);
             label3.TabIndex = 3;
-            label3.Text = "lenght";
+            label3.Text = "lenght in Meters";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(0, 156, 149);
-            label4.Location = new Point(553, 195);
+            label4.Location = new Point(267, 103);
             label4.Name = "label4";
-            label4.Size = new Size(37, 15);
+            label4.Size = new Size(260, 47);
             label4.TabIndex = 4;
-            label4.Text = "width";
+            label4.Text = "width in Meters";
+            label4.Click += label4_Click;
             // 
             // calculateBtn
             // 
@@ -209,31 +214,47 @@
             calculateBtn.UseVisualStyleBackColor = true;
             calculateBtn.Click += button1_Click_1;
             // 
-            // lenghtBox
+            // LenghtBox
             // 
-            lenghtBox.Location = new Point(320, 64);
-            lenghtBox.Name = "lenghtBox";
-            lenghtBox.Size = new Size(165, 23);
-            lenghtBox.TabIndex = 6;
+            LenghtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LenghtBox.Location = new Point(320, 64);
+            LenghtBox.Name = "LenghtBox";
+            LenghtBox.Size = new Size(165, 43);
+            LenghtBox.TabIndex = 6;
+            LenghtBox.TextChanged += LenghtBox_TextChanged;
             // 
-            // textBox2
+            // widthBox
             // 
-            textBox2.Location = new Point(320, 192);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(165, 23);
-            textBox2.TabIndex = 7;
+            widthBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            widthBox.Location = new Point(320, 163);
+            widthBox.Name = "widthBox";
+            widthBox.Size = new Size(165, 43);
+            widthBox.TabIndex = 7;
+            widthBox.TextChanged += WidthBox_TextChanged;
             // 
             // outputPanel
             // 
             outputPanel.AutoSize = true;
             outputPanel.BackColor = Color.Blue;
+            outputPanel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             outputPanel.ForeColor = SystemColors.ButtonFace;
-            outputPanel.Location = new Point(320, 355);
+            outputPanel.Location = new Point(300, 304);
             outputPanel.MinimumSize = new Size(200, 100);
             outputPanel.Name = "outputPanel";
             outputPanel.Size = new Size(200, 100);
             outputPanel.TabIndex = 0;
             outputPanel.Text = ">";
+            // 
+            // infoPanel
+            // 
+            infoPanel.AutoSize = true;
+            infoPanel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            infoPanel.ForeColor = Color.FromArgb(0, 156, 149);
+            infoPanel.Location = new Point(476, 231);
+            infoPanel.Name = "infoPanel";
+            infoPanel.Size = new Size(439, 30);
+            infoPanel.TabIndex = 8;
+            infoPanel.Text = " £200 per square metre for a dry stone walling";
             // 
             // Form1
             // 
@@ -241,9 +262,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(951, 577);
+            Controls.Add(infoPanel);
             Controls.Add(outputPanel);
-            Controls.Add(textBox2);
-            Controls.Add(lenghtBox);
+            Controls.Add(widthBox);
+            Controls.Add(LenghtBox);
             Controls.Add(calculateBtn);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -277,8 +299,9 @@
         private Label label3;
         private Label label4;
         private Button calculateBtn;
-        private TextBox lenghtBox;
-        private TextBox textBox2;
+        private TextBox LenghtBox;
+        private TextBox widthBox;
         private Label outputPanel;
+        private Label infoPanel;
     }
 }
